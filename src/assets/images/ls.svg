@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg3730"
+   version="1.1"
+   viewBox="0 0 113.8005 108.23385"
+   height="108.23385mm"
+   width="113.8005mm"
+   sodipodi:docname="ls.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview17"
+     showgrid="false"
+     inkscape:zoom="1.4703339"
+     inkscape:cx="365.57069"
+     inkscape:cy="183.71778"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs3724" />
+  <metadata
+     id="metadata3727">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(-8.2760883,-39.056698)">
+    <path
+       d="m 100.34806,147.28455 -70.332575,0.006 L 8.2760883,80.401773 65.17298,39.056698 122.07659,80.392527 Z"
+       id="path3734"
+       style="fill:#092529;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332;stroke-opacity:1;paint-order:normal"
+       inkscape:connector-curvature="0" />
+    <flowRoot
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Star Jedi';-inkscape-font-specification:'Star Jedi, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       id="flowRoot6188"
+       xml:space="preserve"><flowRegion
+         id="flowRegion6190"><rect
+           y="627.39771"
+           x="159.7561"
+           height="47.560974"
+           width="167.07317"
+           id="rect6192" /></flowRegion><flowPara
+         id="flowPara6194" /></flowRoot>    <g
+       aria-label="LS"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.92770767px;line-height:1.25;font-family:'Star Jedi';-inkscape-font-specification:'Star Jedi, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.27319264"
+       id="text6198">
+      <path
+         d="M 38.486144,115.71524 V 90.500057 H 31.026031 V 79.807228 h 19.147624 v 25.215182 h 19.446029 v 10.69283 z"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:1.27319264"
+         id="path1398" />
+      <path
+         d="M 101.89711,90.500057 H 90.607472 q -6.390831,-0.198936 -1.889895,3.53112 8.056922,7.062243 7.90772,13.726613 -0.149203,6.66436 -7.90772,7.95745 H 57.3851 v -10.69283 h 19.794168 q 7.037373,0.19894 1.790427,-3.92899 -8.653732,-7.957456 -7.360645,-14.621824 1.293086,-6.664368 8.15639,-6.664368 h 22.13167 z"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:1.27319264"
+         id="path1400" />
+    </g>
+    <flowRoot
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Star Jedi';-inkscape-font-specification:'Star Jedi, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       id="flowRoot6200"
+       xml:space="preserve"><flowRegion
+         id="flowRegion6202"><rect
+           y="350.56845"
+           x="206.09756"
+           height="42.682926"
+           width="36.585365"
+           id="rect6204" /></flowRegion><flowPara
+         id="flowPara6206" /></flowRoot>  </g>
+</svg>

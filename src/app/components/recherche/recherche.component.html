@@ -1,0 +1,58 @@
+<div class="card">
+  <h5 class="card-header">Effectuer une recherche</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <p>Je recherche un :</p>
+      </div>
+      <div class="col">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">Joueur</label>
+      </div>
+      <div class="col">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">Entraîneur</label>
+      </div>
+      <div class="col">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">Club</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <select id="inputState" class="form-control">
+          <option selected>Sport</option>
+          <option>Basketball</option>
+          <option>Football</option>
+          <option>Handball</option>
+        </select>
+      </div>
+      <div class="col">
+        <select id="inputState" class="form-control">
+          <option selected>Poste</option>
+          <option>Ailier Gauche</option>
+          <option>Ailier Droit</option>
+          <option>Arrière Gauche</option>
+          <option>Arrière Droit</option>
+          <option>Demi-Centre</option>
+          <option>Pivot</option>
+          <option>Gardien</option>
+        </select>
+      </div>
+      <div class="col">
+        <select id="inputState" class="form-control">
+          <option selected>Niveau</option>
+          <option>D1</option>
+          <option>D2</option>
+          <option>N1</option>
+          <option>N2</option>
+          <option>N3</option>
+          <option>Pre-national</option>
+          <option>Régional</option>
+          <option>Départemental</option>
+        </select>
+      </div>
+    </div>
+    <a [routerLink]="['/menu']" class="btn btn-primary btnRechercher">Rechercher</a>
+  </div>
+</div>

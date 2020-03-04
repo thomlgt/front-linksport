@@ -1,0 +1,370 @@
+<div class="containerChoix">
+
+  <!-- Joueur -->
+  <div class="card" style="width: 18rem;">
+    <img src="../../assets/images/joueur.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Je suis un joueur</h5>
+      <p class="card-text justify">En tant que joueur je pourrais renseigner mon palmarès, mon niveau de jeu et mon
+        poste.
+        Je pourrais poster une annonce et rechercher un club pour l'année à venir.</p>
+      <button class="btn btn-primary carteChoix" (click)="open(joueur)">M'inscrire</button>
+    </div>
+  </div>
+
+  <!-- Coach -->
+  <div class="card" style="width: 18rem;">
+    <img src="../../assets/images/coach.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Je suis un entraîneur</h5>
+      <p class="card-text justify">En tant qu'entraîneur je pourrais renseigner mes expériences, mon palmarès et mes
+        diplômes.
+        Je pourrais poster une annonce, rechercher un club et des joueurs pour l'année à venir.</p>
+      <button class="btn btn-primary carteChoix" (click)="open(coach)">M'inscrire</button>
+    </div>
+  </div>
+
+  <!-- Club -->
+  <div class="card" style="width: 18rem;">
+    <img src="../../assets/images/club.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Je suis un club</h5>
+      <p class="card-text justify">En tant que club je pourrais renseigner le niveau de jeu de mes équipes, mon palmarès
+        et mes objectifs.
+        Je pourrais poster une annonce, rechercher un joueur et un entraîneur pour l'année à venir.</p>
+      <button class="btn btn-primary carteChoix" (click)="open(club)">M'inscrire</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- /* ------------------------Modal d'inscription de joueurs------------------------ */ -->
+<ng-template #joueur let-modal>
+  <div class="modal-header">
+    <h1 class="modal-title" id="modal-basic-title">Joueur</h1>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" *ngIf="!isValidate">
+    <form (ngSubmit)="submitJoueur(form)" #form="ngForm">
+      <!-- Nom et prénom -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="lastname">Nom :</label>
+          <input id="lastname" type="text" class="form-control" placeholder="Nom" name="lastname" ngModel required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="firstname">Prénom :</label>
+          <input id="firstname" type="text" class="form-control" placeholder="Prénom" name="firstname" ngModel required>
+        </div>
+      </div>
+      <!-- Date de naissance et sexe-->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="birthDate">Date de naissance :</label>
+            <div class="input-group">
+              <input id="birthDate" class="form-control" placeholder="aaaa-mm-jj" name="dp" ngbDatepicker
+                #dp="ngbDatepicker" name="birthDate" ngModel required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="idGender">Sexe :</label>
+          <select id="idGender" class="form-control" name="idGender" ngModel required>
+            <option value="1">Masculin</option>
+            <option value="2">Féminin</option>
+          </select>
+        </div>
+      </div>
+      <!-- Téléphone -->
+      <div class="form-group">
+        <label for="phone">Téléphone :</label>
+        <input id="phone" type="tel" class="form-control" placeholder="+33 6" placement="right" ngbPopover="Nous afficherons ce numéro sur votre profil pour que vous puissiez rentrer en
+           contact avec les autres utilisateurs." name="phone" ngModel required>
+      </div>
+      <!-- Mail -->
+      <div class="form-group">
+        <label for="email">Mail :</label>
+        <input id="email" type="email" class="form-control" placeholder="exemple@hotmail.fr" name="email" ngModel
+          required>
+      </div>
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description :</label>
+        <textarea id="description" class="form-control" rows="3" placeholder="Je me décris en 2-3 lignes..."
+          name="description" ngModel required></textarea>
+      </div>
+      <!-- Pseudo -->
+      <div class="form-group">
+        <label for="username">Pseudo :</label>
+        <input id="username" type="text" class="form-control" placeholder="Pseudo" name="username" ngModel required>
+      </div>
+      <!-- Mot de passe -->
+      <div class="form-group">
+        <label for="password">Mot de passe :</label>
+        <input id="password" type="password" class="form-control" placeholder="Mot de passe" name="password" ngModel
+          required>
+      </div>
+      <!-- Localisation -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="zipCode">Code Postal :</label>
+          <input type="text" class="form-control" id="zipCode" placeholder="75000" name="zipCode" ngModel required>
+        </div>
+      </div>
+      <!-- Sport -->
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="sports">Sport :</label>
+          <select [id]="sports" class="form-control" #s (change)="functionSport(s.value)" name="idSport" ngModel
+            required>
+            <option value="" disabled selected>Sélectionner</option>
+            <option *ngFor="let sport of sports" [value]="sport.id">{{sport.name}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <div *ngIf="isSportSelected">
+            <label for="postes">Poste :</label>
+            <select [id]="postes" class="form-control" name="idPosition" ngModel required>
+              <option *ngFor="let poste of postes[sportId]" [value]="poste.id">{{poste.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div *ngIf="isSportSelected">
+            <label for="niveau">Niveau :</label>
+            <select [id]="niveau" class="form-control" name="idLevel" ngModel required>
+              <option *ngFor="let niveau of niveaux[sportId]" [value]="niveau.id">{{niveau.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btnSave">Valider</button>
+    </form>
+  </div>
+  <div class="modal-body validate" *ngIf="isValidate">
+    <div>
+      <i class="fas fa-check-circle check"></i>
+    </div>
+    <div>
+      <p class="validtext">Vous êtes désormais inscrit sur LinkSport !</p>
+      <p class="validtext">Connectez vous et rentrez en contact avec d'autres sportifs !</p>
+    </div>
+  </div>
+</ng-template>
+
+<!-- /* ------------------------Modal d'inscription d'entraîneurs------------------------ */ -->
+<ng-template #coach let-modal>
+  <div class="modal-header">
+    <h1 class="modal-title" id="modal-basic-title">Entraîneur</h1>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" *ngIf="!isValidate">
+    <form (ngSubmit)="submitCoach(form)" #form="ngForm">
+      <!-- Nom et prénom -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="lastname">Nom :</label>
+          <input id="lastname" type="text" class="form-control" placeholder="Nom" name="lastname" ngModel required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="firstname">Prénom :</label>
+          <input id="firstname" type="text" class="form-control" placeholder="Prénom" name="firstname" ngModel required>
+        </div>
+      </div>
+      <!-- Date de naissance et sexe-->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="birthDate">Date de naissance :</label>
+            <div class="input-group">
+              <input id="birthDate" class="form-control" placeholder="aaaa-mm-jj" name="dp" ngbDatepicker
+                #dp="ngbDatepicker" name="birthDate" ngModel required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="idGender">Sexe :</label>
+          <select id="idGender" class="form-control" name="idGender" ngModel required>
+            <option value="1">Masculin</option>
+            <option value="2">Féminin</option>
+          </select>
+        </div>
+      </div>
+      <!-- Téléphone -->
+      <div class="form-group">
+        <label for="phone">Téléphone :</label>
+        <input id="phone" type="tel" class="form-control" placeholder="+33 6" placement="right" ngbPopover="Nous afficherons ce numéro sur votre profil pour que vous puissiez rentrer
+           en contact avec les autres utilisateurs." name="phone" ngModel required>
+      </div>
+      <!-- Mail -->
+      <div class="form-group">
+        <label for="email">Mail :</label>
+        <input id="email" type="email" class="form-control" placeholder="exemple@hotmail.fr" name="email" ngModel
+          required>
+      </div>
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description :</label>
+        <textarea id="description" class="form-control" rows="3" placeholder="Je me décris en 2-3 lignes..."
+          name="description" ngModel required></textarea>
+      </div>
+      <!-- Pseudo -->
+      <div class="form-group">
+        <label for="username">Pseudo :</label>
+        <input id="username" type="text" class="form-control" placeholder="Pseudo" name="username" ngModel required>
+      </div>
+      <!-- Mot de passe -->
+      <div class="form-group">
+        <label for="password">Mot de passe :</label>
+        <input id="password" type="password" class="form-control" placeholder="Mot de passe" name="password" ngModel
+          required>
+      </div>
+      <!-- Localisation -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="zipCode">Code Postal :</label>
+          <input type="text" class="form-control" id="zipCode" placeholder="75000" name="zipCode" ngModel required>
+        </div>
+      </div>
+      <!-- Sport -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="sports">Sport :</label>
+          <select [id]="sports" class="form-control" #s (change)="functionSport(s.value)" name="idSport" ngModel
+            required>
+            <option value="" disabled selected>Sélectionner</option>
+            <option *ngFor="let sport of sports" [value]="sport.id">{{sport.name}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <div *ngIf="isSportSelected">
+            <label for="niveau">Niveau :</label>
+            <select [id]="niveau" class="form-control" name="idLevel" ngModel required>
+              <option *ngFor="let niveau of niveaux[sportId]" [value]="niveau.id">{{niveau.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btnSave">Valider</button>
+    </form>
+  </div>
+  <div class="modal-body validate" *ngIf="isValidate">
+    <div>
+      <i class="fas fa-check-circle check"></i>
+    </div>
+    <div>
+      <p class="validtext">Vous êtes désormais inscrit sur LinkSport !</p>
+      <p class="validtext">Connectez vous et rentrez en contact avec d'autres sportifs !</p>
+    </div>
+  </div>
+</ng-template>
+
+<!-- /* ------------------------Modal d'inscription de clubs------------------------ */ -->
+<ng-template #club let-modal>
+  <div class="modal-header">
+    <h1 class="modal-title" id="modal-basic-title">Club</h1>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" *ngIf="!isValidate">
+    <form (ngSubmit)="submitClub(form)" #form="ngForm">
+      <!-- Nom du club -->
+      <div class="form-group">
+        <label for="name">Nom :</label>
+        <input id="name" type="text" class="form-control" placeholder="Nom" name="name" ngModel required>
+      </div>
+      <!-- Date de Création -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="creationDate">Date de création :</label>
+            <div class="input-group">
+              <input id="creationDate" class="form-control" placeholder="aaaa-mm-jj" name="dp" ngbDatepicker
+                #dp="ngbDatepicker" name="creationDate" ngModel required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Téléphone -->
+      <div class="form-group">
+        <label for="phone">Téléphone :</label>
+        <input id="phone" type="tel" class="form-control" placeholder="+33 6" placement="right" ngbPopover="Nous afficherons ce numéro sur votre profil pour que vous puissiez rentrer en
+           contact avec les autres utilisateurs." name="phone" ngModel required>
+      </div>
+      <!-- Mail -->
+      <div class="form-group">
+        <label for="email">Mail :</label>
+        <input id="email" type="email" class="form-control" placeholder="exemple@hotmail.fr" name="email" ngModel
+          required>
+      </div>
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description :</label>
+        <textarea id="description" class="form-control" rows="3" placeholder="Je me décris en 2-3 lignes..."
+          name="description" ngModel required></textarea>
+      </div>
+      <!-- Pseudo -->
+      <div class="form-group">
+        <label for="username">Pseudo :</label>
+        <input id="username" type="text" class="form-control" placeholder="Pseudo" name="username" ngModel required>
+      </div>
+      <!-- Mot de passe -->
+      <div class="form-group">
+        <label for="password">Mot de passe :</label>
+        <input id="password" type="password" class="form-control" placeholder="Mot de passe" name="password" ngModel
+          required>
+      </div>
+      <!-- Localisation -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="zipCode">Code Postal :</label>
+          <input type="text" class="form-control" id="zipCode" placeholder="75000" name="zipCode" ngModel required>
+        </div>
+      </div>
+      <!-- Sport -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="sports">Sport :</label>
+          <select [id]="sports" class="form-control" #s (change)="functionSport(s.value)" placeholder="Sports"
+            name="idSport" ngModel required>
+            <option value="" disabled selected>Sélectionner</option>
+            <option *ngFor="let sport of sports" [value]="sport.id">{{sport.name}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <div *ngIf="isSportSelected">
+            <label for="niveau">Niveau :</label>
+            <select [id]="niveau" class="form-control" name="idLevel" ngModel required>
+              <option *ngFor="let niveau of niveaux[sportId]" [value]="niveau.id">{{niveau.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btnSave">Valider</button>
+    </form>
+  </div>
+  <div class="modal-body validate" *ngIf="isValidate">
+    <div>
+      <i class="fas fa-check-circle check"></i>
+    </div>
+    <div>
+      <p class="validtext">Vous êtes désormais inscrit sur LinkSport !</p>
+      <p class="validtext">Connectez vous et rentrez en contact avec d'autres sportifs !</p>
+    </div>
+  </div>
+</ng-template>

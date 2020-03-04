@@ -1,0 +1,71 @@
+<!-- Bannière -->
+<div class="banniere">
+  <div class="row">
+    <div class="col-md">
+      <p class="nom">{{ user.user.name }} {{ user.user.firstname }}</p>
+    </div>
+    <div class="col-md">
+      <img src="../../assets/images/person.png" class="imgProfil">
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>
+<!-- Follow Zone -->
+<div class="row followZone">
+  <div class="col-md-2">
+    <h3>1452</h3>
+    <small class="text-muted followText">Abonnés</small>
+  </div>
+  <div class="col-md-2">
+    <h3>723</h3>
+    <small class="text-muted followText">Abonnements</small>
+  </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4 followbtn">
+    <button class="btn btn-danger" [routerLink]="['/profil']">Annuler</button>
+  </div>
+</div>
+<!-- Informations user -->
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+  <div class="card">
+    <div class="card-body">
+      <form (ngSubmit)="submitModif(form)" #form="ngForm">
+        <div class="form-group">
+          <label for="description">Description :</label>
+          <textarea id="description" class="form-control" rows="3" placeholder="Je me décris en 2-3 lignes..."
+            name="description" ngModel required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail :</label>
+          <input id="email" type="email" class="form-control" placeholder="exemple@exemple.fr" name="email" ngModel required>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="phone">Téléphone :</label>
+              <input id="phone" type="tel" class="form-control" placeholder="06 20 30 10 50" name="phone" ngModel
+                required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="zipCode">Code Postal :</label>
+              <input id="zipCode" type="text" class="form-control" placeholder="75000" name="zipCode" ngModel
+                required>
+            </div>
+          </div>
+        </div>
+        <div class="btnValider">
+            <button type="submit" class="btn btn-success">Valider modifications</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Dernières publications -->
+<div class="publis">
+  <div class="titrePub">
+    <h6>Dernières publications</h6>
+  </div>
+  <app-publication-profil></app-publication-profil>
+</div>

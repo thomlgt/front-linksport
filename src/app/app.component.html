@@ -1,0 +1,20 @@
+<div *ngIf="authenticationService.isConnect">
+  <app-menu></app-menu>
+  <div class="row">
+    <div class="col-3">
+      <app-sidemenu></app-sidemenu>
+    </div>
+    <div class="col-6">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-3">
+      <app-suggestions></app-suggestions>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+<div *ngIf="!authenticationService.isConnect">
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+</div>

@@ -1,0 +1,17 @@
+<form (ngSubmit)="submitPub(form)" #form="ngForm">
+  <div class="row">
+    <div class="col-md-10">
+      <textarea class="form-control" id="publication" rows="3" placeholder="Ecrire quelque chose..." name="body" ngModel
+        required></textarea>
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary btnPublier">Publier</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="alert alert-success" role="alert" *ngIf="isPubliate">
+      <i class="fas fa-check-circle"></i>
+      La publication a été envoyée avec succès
+    </div>
+  </div>
+</form>

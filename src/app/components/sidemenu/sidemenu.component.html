@@ -1,0 +1,24 @@
+<div class="sideMenu">
+  <div class="top">
+    <button class="btn btn-primary notif" [routerLink]="['/notifications']">
+      <i class="fas fa-bell"></i>
+      <span class="badge badge-danger">4</span>
+    </button>
+
+    <a [routerLink]="['/profil']"><img [src]="imgUrl" class="imgProfil"></a>
+
+    <button class="btn btn-primary msg" [routerLink]="['/messages']">
+      <i class="fas fa-envelope"></i>
+      <span class="badge badge-danger">11</span>
+    </button>
+  </div>
+  <div>
+    <button class="btn btn-primary btnMenu" [routerLink]="['/accueil']">Fil d'actualité</button>
+  </div>
+  <div>
+    <button class="btn btn-primary btnMenu" [routerLink]="['/rechercher']">Effectuer une recherche</button>
+  </div>
+  <div>
+    <button type="button" *ngIf="authenticationService.currentUser" class="btn btn-danger deconnecter" (click)="seDeconnecter()">Déconnexion</button>
+  </div>
+</div>

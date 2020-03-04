@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+.logoAccueil {
+    width : 20%;
+    display : block;
+    margin-left : auto;
+    margin-right : auto;
+    margin-top : 2%;
+}
+
+.logoIns {
+    width : 27%;
+    display : block;
+    margin-left : auto;
+    margin-right : auto;
+    margin-top : 10%;
+    border-radius : 1em;
+}
+
+.drop {
+    display : flex;
+    position : relative;
+}
+
+.containerChoix {
+    display : flex;
+    justify-content : space-evenly;
+    margin-top : 2%;
+}
+
+.carteChoix {
+    width : 100%;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.formulaire {
+    display : block;
+    margin-left : 35%;
+    margin-right : 35%;
+    border:5px solid #092529;
+    border-bottom : 1px solid white;
+    -moz-border-radius:30px;
+    -webkit-border-radius:30px;
+    border-radius:30px;
+}
+
+.casesFormulaire {
+    width : 90%;
+    margin : 5%;
+}
+
+.toggle {
+    width : 28%;
+}

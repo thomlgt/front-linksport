@@ -1,0 +1,78 @@
+.row {
+  margin: 0px;
+  padding: 0px;
+}
+
+.col-md {
+  margin: 0px;
+  padding: 0px;
+}
+
+.banniere {
+  background-image: url("../../../assets/images/pelouse.png");
+  text-align: center;
+}
+
+.nom {
+  float: left;
+  margin: 0px;
+  background-color: #f7f7f7;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px;
+  font-weight: 400;
+  font-size: 16px;
+  -webkit-border-radius:20%;
+  -moz-border-radius:20% ;
+  border-radius:20%;
+  border: 2px solid #007bff
+}
+
+.imgProfil {
+  -webkit-border-radius:50%;
+  -moz-border-radius:50% ;
+  border-radius:50%;
+  border: 2px solid #007bff;
+  width:160px;
+  height:160px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.followZone {
+  border: 1px solid lightgray;
+  border-top: 0px;
+}
+
+h3 {
+  margin: 0px;
+}
+
+.followText {
+  text-transform: uppercase;
+  margin: 0;
+	font-weight: 400;
+  line-height: 28px;
+  font-size: 12px;
+	text-align: left;
+}
+
+.followbtn {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.card-title {
+  padding-left : 20px;
+  padding-top: 20px;
+  margin: 0px;
+}
+
+.card-body p {
+  display: inline;
+}
+
+.publis {
+  margin-top : 20px;
+}

@@ -1,0 +1,31 @@
+<div class="publication" *ngFor="let pub of pubList">
+  <div class="row">
+    <!-- Gauche -->
+    <div class="col-md-2">
+      <a (click)="goToProfile(pub.user.id)"><img src="{{imgUrl}}{{pub.user.avatar}}" class="imgPubli"></a>
+      <p class="text-muted">{{ pub.createdAt | date : 'd MMM yyy h:mm' | uppercase}}</p>
+    </div>
+    <!-- Droite -->
+    <div class="col-md-10">
+      <!-- Nom de l'utilisateur -->
+      <p class="lead">{{ pub.user.name }} {{ pub.user.firstname }}</p>
+      <!-- Contenu de la publication -->
+      <p class="contenu">{{ pub.text }}</p>
+      <!-- Options de la publication (like/partage) -->
+      <div class="row option">
+        <div class="col-md">
+          <button class="btn btn-outline-danger"><i class="fas fa-heart"></i> Like</button>
+        </div>
+        <div class="col-md">
+          <button class="btn btn-light" disabled>351 likes</button>
+        </div>
+        <div class="col-md">
+          <button class="btn btn-outline-success"><i class="fas fa-share"></i> Partager</button>
+        </div>
+        <div class="col-md">
+                <button class="btn btn-light" disabled>44 partages</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
